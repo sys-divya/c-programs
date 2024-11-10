@@ -1,1 +1,121 @@
 
+#include<iostream>
+class par
+{
+private:
+	int a=10;
+protected:
+	int b=20;
+public:
+	int c=30;
+};
+class c1 :private par
+{
+public:
+	void fun()
+	{
+		//std::cout << "a=" << a;
+		std::cout << "\tb=" << b << "\tc=" << c;//error to a depending on par's private
+	}
+};
+class c2:private c1
+{
+public:
+	void run()
+	{
+		//std::cout << "a=" << a;
+		//std::cout << "\tb=" << b << "\tc=" << c;//error to a,b,c depending on because all are private in c1
+	}
+};
+class c3 :public par
+{
+public:
+	void sun()
+	{
+		//std::cout << "a=" << a;
+		std::cout << "\tb=" << b << "\tc=" << c;//error to a depending on because  private in par
+	
+	}
+};
+class c4 :protected par
+{
+public:
+	void gun()
+	{
+		//std::cout << "a=" << a;
+		std::cout << "\tb=" << b << "\tc=" << c;//error to a depending on because  private in par
+
+	}
+};
+class c5 :public c3
+{
+public:
+	void mun()
+	{
+		//std::cout << "a=" << a;
+		std::cout << "\tb=" << b << "\tc=" << c;//error to a depending on because  private in par
+
+	}
+};
+class c6 :protected c3
+{
+public:
+	void bun()
+	{
+		//std::cout << "a=" << a;
+		std::cout << "\tb=" << b << "\tc=" << c;//error to a depending on because  private in par
+
+	}
+};
+class c7 :public c4
+{
+public:
+	void qun()
+	{
+		//std::cout << "a=" << a;
+		std::cout << "\tb=" << b << "\tc=" << c;//error to a depending on because  private in par
+
+	}
+};
+class c9 :protected c4
+{
+public:
+	void zun()
+	{
+		//std::cout << "a=" << a;
+		std::cout << "\tb=" << b << "\tc=" << c;//error to a depending on because  private in par
+
+	}
+};
+class c8 :private c4
+{
+public:
+	void pun()
+	{
+		//std::cout << "a=" << a;
+		std::cout << "\tb=" << b << "\tc=" << c;//error to a depending on because  private in par
+
+	}
+};
+int main()
+{
+	c1 c;
+	c.fun();
+	c2 r;
+	r.run();
+	c3 z;
+	z.sun();
+	c4 y;
+	y.gun();
+	c5 u;
+	u.mun();
+	c6 i;
+	i.bun();
+	c7 o;
+	o.qun();
+	c9 s;
+	s.zun();
+	c8 p;
+	p.pun();
+	return 0;
+}
