@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33927.289
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "demofile", "demofile\demofile.vcxproj", "{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Debug|x64.ActiveCfg = Debug|x64
+		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Debug|x64.Build.0 = Debug|x64
+		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Debug|x86.ActiveCfg = Debug|Win32
+		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Debug|x86.Build.0 = Debug|Win32
+		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Release|x64.ActiveCfg = Release|x64
+		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Release|x64.Build.0 = Release|x64
+		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Release|x86.ActiveCfg = Release|Win32
+		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C12AB47D-B037-4612-9ECC-F50CA54B21B5}
+	EndGlobalSection
+EndGlobal
