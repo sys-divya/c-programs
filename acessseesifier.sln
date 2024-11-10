@@ -1,1 +1,22 @@
-
+#include<iostream>
+class demo
+{/*
+ this data members*/
+private:
+	int a;
+	int b;
+	int c;
+public:
+	demo()
+	{
+		this->a = 10;
+		this->b = 20;
+		this->c = 30;
+	}
+};
+int main()
+{
+	demo d;
+	int* p = reinterpret_cast<int*>(&d);//used to acces private non static data members of class
+	std::cout << *p << "\t"<< * (p + 1) << "\t"<< * (p + 2);
+}
