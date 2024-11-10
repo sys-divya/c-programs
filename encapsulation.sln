@@ -1,31 +1,55 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33927.289
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "encapsulation", "encapsulation\encapsulation.vcxproj", "{FC761884-3634-46F6-8D92-E39B5ECB8FE9}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FC761884-3634-46F6-8D92-E39B5ECB8FE9}.Debug|x64.ActiveCfg = Debug|x64
-		{FC761884-3634-46F6-8D92-E39B5ECB8FE9}.Debug|x64.Build.0 = Debug|x64
-		{FC761884-3634-46F6-8D92-E39B5ECB8FE9}.Debug|x86.ActiveCfg = Debug|Win32
-		{FC761884-3634-46F6-8D92-E39B5ECB8FE9}.Debug|x86.Build.0 = Debug|Win32
-		{FC761884-3634-46F6-8D92-E39B5ECB8FE9}.Release|x64.ActiveCfg = Release|x64
-		{FC761884-3634-46F6-8D92-E39B5ECB8FE9}.Release|x64.Build.0 = Release|x64
-		{FC761884-3634-46F6-8D92-E39B5ECB8FE9}.Release|x86.ActiveCfg = Release|Win32
-		{FC761884-3634-46F6-8D92-E39B5ECB8FE9}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0AC54AB7-16A0-4CD0-9D1C-773DEBD4B669}
-	EndGlobalSection
-EndGlobal
+#include<iostream>
+class stud
+{
+private:
+	int age, rollno;
+	char name[10];
+public:
+	void setAge(int age)
+	{
+		if (age > 20)
+		{
+			this->age = age;
+		}
+		else
+		{
+			std::cout << "enter valid";
+		}
+	}
+	void setRollno(int rollno)
+	{
+		if (rollno > 0)
+		{
+			this->rollno = rollno;
+		}
+		else
+		{
+			std::cout<< "enter valid";
+		}
+	}
+	void setName(char name[10])
+	{
+		this->name[10] = name[10];
+	}
+	int getAge()
+	{
+		return this->age;
+	}
+	int getRollno()
+	{
+		return this->rollno;
+	}
+	char getName()
+	{
+		return this->name[10];
+	}
+};
+int main()
+{
+	stud d;
+	d.setAge(21);
+	//d.setName("d");
+	d.setRollno(18);
+	std::cout << "age=" << d.getAge() << "\trollno=" << d.getRollno() << "\tname=" << d.getName();
+	return 0;
+}
