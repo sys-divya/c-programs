@@ -1,31 +1,57 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33927.289
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "deepcopyconstructor", "deepcopyconstructor\deepcopyconstructor.vcxproj", "{7FC74E08-19EB-4B39-A0EE-FDE0DC70AC6A}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7FC74E08-19EB-4B39-A0EE-FDE0DC70AC6A}.Debug|x64.ActiveCfg = Debug|x64
-		{7FC74E08-19EB-4B39-A0EE-FDE0DC70AC6A}.Debug|x64.Build.0 = Debug|x64
-		{7FC74E08-19EB-4B39-A0EE-FDE0DC70AC6A}.Debug|x86.ActiveCfg = Debug|Win32
-		{7FC74E08-19EB-4B39-A0EE-FDE0DC70AC6A}.Debug|x86.Build.0 = Debug|Win32
-		{7FC74E08-19EB-4B39-A0EE-FDE0DC70AC6A}.Release|x64.ActiveCfg = Release|x64
-		{7FC74E08-19EB-4B39-A0EE-FDE0DC70AC6A}.Release|x64.Build.0 = Release|x64
-		{7FC74E08-19EB-4B39-A0EE-FDE0DC70AC6A}.Release|x86.ActiveCfg = Release|Win32
-		{7FC74E08-19EB-4B39-A0EE-FDE0DC70AC6A}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B824B9DC-9365-4E92-A198-DB0F08F8E30A}
-	EndGlobalSection
-EndGlobal
+#include<iostream>
+class demo
+{
+public:
+	int a, b, * p;
+	demo()
+	{
+
+	}
+	demo(int a, int b, int c)
+	{
+		this->a = a;
+		this->b = b;
+		this->p = (int*)malloc(sizeof(int));
+		*(this->p) = c;
+	}
+	demo(const demo& obj)
+	{
+		this->a = obj.a;
+		this->b = obj.b;
+		this->p = (int*)malloc(sizeof(int));
+		*(this->p) = *(obj.p);
+	}
+	/*void operator=(const demo& obj)
+	{
+		this->a = obj.a;
+		this->b = obj.b;
+		this->p = (int*)malloc(sizeof(int));
+		*(this->p) = *(obj.p);
+
+	}*/
+
+	demo& operator=(const demo& obj)
+	{
+		this->a = obj.a;
+		this->b = obj.b;
+		this->p = (int*)malloc(sizeof(int));
+		*(this->p) = *(obj.p);
+		return (*this);
+
+	}
+};
+int main()
+{
+	demo d1(10, 20, 30);
+	demo d2;//default contstructor
+	d2 = d1;//copy by assing operator
+	
+	//demo d2 = d1;
+	//demo d2(d1); 
+	std::cout << "before change=\t" << d1.a << "\t" << d1.b << "\t" << *(d1.p)<<"\t"<<d2.a<<"\t"<<d2.b<<"\t"<<*(d2.p)<<std::endl;
+	
+	(d1.a)++;
+	(d2.b)++;
+	(*(d1.p))++;
+	std::cout << "after change=\t" << d1.a << "\t" << d1.b << "\t" << *(d1.p) << "\t" << d2.a << "\t" << d2.b << "\t" << *(d2.p);
+}
