@@ -1,1 +1,31 @@
+#include<iostream>
+class demo
+{
+public:
+	demo()
+	{
 
+	}
+	demo& operator()()
+	{
+		std::cout << "hellow";
+		return *this;
+	}
+
+	demo& operator()(int a)
+	{
+		std::cout << "\t" << a;
+		return *this;
+	}
+	void operator()(int a,int b)
+	{
+		std::cout <<"\t" << a << "\t" << b;
+	}
+};
+int main()
+{
+	demo d;
+	d();
+	d(10, 20);
+	d()(10)(10, 20);
+}
