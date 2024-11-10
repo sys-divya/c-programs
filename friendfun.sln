@@ -1,1 +1,36 @@
-
+#include<iostream>
+class demo
+{
+private:
+	int a, b, c;
+public:
+	demo(int a, int b, int c)
+	{
+		this->a = a;
+		this->b = b;
+		this->c = c;
+	}
+	
+	friend std::ostream& operator<<(std::ostream& out, const demo& obj);
+	friend std::istream& operator>>(std::istream& i, demo& obj);
+};
+std::ostream& operator<<(std::ostream& out, const demo& obj)
+{
+	out << obj.a<<"\n";
+	out << obj.b<<"\n";
+	out << obj.c<<"\n";
+	return out;
+}
+std::istream& operator>>(std::istream& i, demo& obj)
+{
+	i >> obj.a;
+	i >> obj.b;
+	i >> obj.c;
+	return i;
+}
+int main()
+{
+	demo d1(int e,int f, int g );
+	std::cin >> d1;
+	std::cout << d1;
+}
