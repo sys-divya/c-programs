@@ -1,31 +1,53 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33927.289
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "demofile", "demofile\demofile.vcxproj", "{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Debug|x64.ActiveCfg = Debug|x64
-		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Debug|x64.Build.0 = Debug|x64
-		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Debug|x86.ActiveCfg = Debug|Win32
-		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Debug|x86.Build.0 = Debug|Win32
-		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Release|x64.ActiveCfg = Release|x64
-		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Release|x64.Build.0 = Release|x64
-		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Release|x86.ActiveCfg = Release|Win32
-		{DDACDD7C-5373-4512-BCB0-3CBCCACA87ED}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C12AB47D-B037-4612-9ECC-F50CA54B21B5}
-	EndGlobalSection
-EndGlobal
+#include<iostream>
+class demo
+{
+public:
+	int a;
+	static int b;
+	void fun()
+	{
+		std::cout << " from fun a=" << this->a << "\t" << "b=" << this->b<<std::endl;
+		run();
+		sun();
+	}
+	void run()
+	{
+		std::cout << " from run a=" << this->a << "\t" << "b=" << this->b<<std::endl;
+	}
+	 static void sun()
+	{
+		 std::cout <<  " from sun \t" << "b=" << b<<std::endl;
+		 
+	}
+	static void gun()
+	{
+		
+		std::cout << "\t" << " from gun b=" << b<<std::endl;
+		sun();
+	}
+
+};
+int demo::b = 20;//only memory is fixed  not value
+
+int main()
+{
+	demo d;
+	d.a = 10;
+	d.fun();
+	demo::gun();
+	d.a = 10;
+	demo d1;
+	d1.a = 10;
+	demo d2;
+	d2.a = 10;
+	std::cout << "d.a=" << d.a << "\t" << "d.b=" << d.b << std::endl;
+	std::cout << "d1.a=" << d1.a << "\t" << "d1.b=" << d1.b << std::endl;
+	std::cout << "d2.a=" << d2.a << "\t" << "d2.b=" << d2.b << std::endl;
+	d.a = 1000;
+	d.b = 200;
+	std::cout << "d.a=" << d.a << "\t" << "d.b=" << d.b << std::endl;
+	std::cout << "d1.a=" << d1.a << "\t" << "d1.b=" << d1.b << std::endl;
+	std::cout << "d2.a=" << d2.a << "\t" << "d2.b=" << d2.b << std::endl;
+	
+	return 0;
+}
