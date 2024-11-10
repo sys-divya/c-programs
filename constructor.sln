@@ -1,31 +1,27 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33927.289
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "constructor", "constructor\constructor.vcxproj", "{4FBA287B-6A8A-485A-AF9B-31F1BBDC2D12}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4FBA287B-6A8A-485A-AF9B-31F1BBDC2D12}.Debug|x64.ActiveCfg = Debug|x64
-		{4FBA287B-6A8A-485A-AF9B-31F1BBDC2D12}.Debug|x64.Build.0 = Debug|x64
-		{4FBA287B-6A8A-485A-AF9B-31F1BBDC2D12}.Debug|x86.ActiveCfg = Debug|Win32
-		{4FBA287B-6A8A-485A-AF9B-31F1BBDC2D12}.Debug|x86.Build.0 = Debug|Win32
-		{4FBA287B-6A8A-485A-AF9B-31F1BBDC2D12}.Release|x64.ActiveCfg = Release|x64
-		{4FBA287B-6A8A-485A-AF9B-31F1BBDC2D12}.Release|x64.Build.0 = Release|x64
-		{4FBA287B-6A8A-485A-AF9B-31F1BBDC2D12}.Release|x86.ActiveCfg = Release|Win32
-		{4FBA287B-6A8A-485A-AF9B-31F1BBDC2D12}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D7F0BC37-D3DC-4630-9444-B6EAF6B8DD64}
-	EndGlobalSection
-EndGlobal
+#include<iostream>
+class Demo
+{
+public:
+	int a, b;
+	int *p;
+	Demo(int a, int b, int c)
+	{
+		this->a = a;
+		this->b =b;
+		this->p = (int*)malloc(sizeof(int));
+		*(this->p) = c;
+		
+	}
+};
+int main()
+{
+	Demo d(10,20,30);
+	Demo d2(d);//if there is no explict copy const then by defau
+	(d.a)++;
+	(*(d2.p))++;
+	std::cout << d.a << "\t" << d.b << "\t" << *(d.p) << std::endl;
+		(d2.b)++;
+
+		std::cout << d2.a << "\t" << d2.b << "\t" << *(d2.p);
+	return 0;
+}
