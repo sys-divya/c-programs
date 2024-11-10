@@ -1,1 +1,8 @@
-﻿
+#include<iostream>
+int main()
+{
+	static  int a = 10;
+	int* p = &a;
+	(*p)++;
+	std::cout << "a=" << a << std::endl << "*p=" << *p;
+}﻿
